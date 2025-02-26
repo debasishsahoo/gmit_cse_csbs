@@ -1,8 +1,8 @@
+import React from 'react'
 
-
-function Header(){
-    return(<>
-      <div className="header">
+const Header = () => {
+  return (
+    <div className="header">
       <h1>Changing the World Through Design</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
       <div className="buttons">
@@ -10,7 +10,7 @@ function Header(){
         <a href="#" className="hollow">Learn Less</a>
       </div>
     </div>
-    </>);
+  )
 }
 
-export default Header;
+export default Header
