@@ -41,13 +41,28 @@ function App() {
     },
   ];
 
+  const statsData = [
+    { number: 28, label: "Websites" },
+    { number: 43, label: "Apps" },
+    { number: 95, label: "Ads" },
+    { number: 59, label: "Cakes" },
+    { number: 18, label: "Logos" },
+    { number: 180, label: "Crab" },
+    { number: 45, label: "AI" },
+    { number: 68, label: "ML" },
+  ];
+
+
+
+
+
   return (
     <>
       <div className="container">
         <Header data={HeaderData} />
         <Content data={ContentData} />
         <Services data={ServicesData}/>
-        <Stats />
+        <Stats data={statsData}/>
         <hr />
         <div className="row column">
           <h3>Our Recent Work</h3>
