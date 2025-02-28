@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <PropsBasic name="Debasish" title="Sahoo" />
-      <ValueProps 
-      strData="this is String Value" 
+      <ValueProps
+      strData="this is String Value"
       numData={123}
       boolData={false}
       objData={{name:"Deb",title:"Sahoo"}}
