@@ -8,7 +8,7 @@ function App() {
   const SpreadData = { stack1: "REACT", stack2: "ANGULAR" ,stack3:"NEXTJS",stack4:"TYPESCRIPT"};
   return (
     <>
-      <PropsBasic name="Debasish" title="Sahoo" />
+      {/* <PropsBasic name="Debasish" title="Sahoo" />
       <ValueProps
         strData="this is String Value"
         numData={123}
@@ -19,11 +19,12 @@ function App() {
         anyData={anyValue}
       />
 
-      <PropsPass persons={["Archisman", "Sourav", "Jain", "treema"]} />
+      <PropsPass persons={["Archisman", "Sourav", "Jain", "treema"]} /> */}
       <PropsSpread 
       a={SpreadData.stack1} 
       b={SpreadData.stack4}/>
       <br/>
+      <p>------------------------------</p>
       <PropsSpread {...SpreadData}/>
     </>
   );

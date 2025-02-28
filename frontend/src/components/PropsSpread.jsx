@@ -1,9 +1,9 @@
 import React from 'react'
 
-const PropsSpread = () => {
+const PropsSpread = ({ a, b }) => {
   return (
     <div>
-      
+      {a}, {b}!
     </div>
   )
 }
