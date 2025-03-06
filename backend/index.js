@@ -1,4 +1,5 @@
 const express=require('express');
+const connectDB=require('./configs/db.mongo.conn')
 require('dotenv').config();
 
 const PORT=process.env.PORT;
@@ -29,20 +30,7 @@ server.post('/api/items/add',(req,res)=>{
 // VIEW all data from database (READ)
 //server.get()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+connectDB()
 server.listen(PORT,()=>{
 console.log(`Server is Running ON http://${HOST}:${PORT}`)
 })
