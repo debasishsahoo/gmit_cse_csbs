@@ -39,7 +39,7 @@ server.get("/api/items/view", (req, res) => {
 //API endpoint=http://127.0.0.1:5000/api/items/view/:id
 server.get("/api/items/view/:id", (req, res) => {
   const item = items.find((i) => i.id === parseInt(req.params.id));
-  item ? res.json(item) : res.status(404).json({ error: "Item not found" });
+  item ? res.status(200).json(item) : res.status(404).json({ error: "Item not found" });
 });
 
 //UPDATE (single item by ID)
@@ -49,7 +49,7 @@ server.put("/api/items/update/:id", (req, res) => {
   const index = items.findIndex((i) => i.id === parseInt(req.params.id));
   if (index !== -1) {
     items[index] = { ...items[index], ...req.body };
-    res.json(items[index]);
+    res.status(200).json(items[index]);
   } else {
     res.status(404).json({ error: "Item not found" });
   }
@@ -62,7 +62,7 @@ server.delete("/api/items/delete/:id", (req, res) => {
   const index = items.findIndex((i) => i.id === parseInt(req.params.id));
   if (index !== -1) {
     const deletedItem = items.splice(index, 1);
-    res.json(deletedItem);
+    res.status(200).json(deletedItem);
   } else {
     res.status(404).json({ error: "Item not found" });
   }

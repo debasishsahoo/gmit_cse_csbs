@@ -1,0 +1,18 @@
+127.0.0.1:5000/api/items/insert
+127.0.0.1:5000/api/items/view
+127.0.0.1:5000/api/items/view/:id
+127.0.0.1:5000/api/items/update/:id
+127.0.0.1:5000/api/items/delete/:id
+
+{
+    "name":"",
+    "price":0,
+    "color":""
+}
+
+{
+    "id": 1741244930412,
+    "name": "Product-1",
+    "price": 120,
+    "color": "Black"
+}
