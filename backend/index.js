@@ -23,7 +23,8 @@ let items = []; //In-Memory Database
 //API endpoint=http://127.0.0.1:5000/api/items/insert
                //ROUTER URL     //API METHODS
 server.post("/api/items/insert", (req, res) => {
-  const item = { id: Date.now(), ...req.body };
+  const body={...req.body};
+  const item = { id: Date.now(), ...body};
   items.push(item);
   res.status(201).json(item);
 });

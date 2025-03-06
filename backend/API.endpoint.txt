@@ -1,14 +1,22 @@
 127.0.0.1:5000/api/items/insert
+
 127.0.0.1:5000/api/items/view
 127.0.0.1:5000/api/items/view/:id
+
 127.0.0.1:5000/api/items/update/:id
 127.0.0.1:5000/api/items/delete/:id
 
+
+//Input format
 {
     "name":"",
     "price":0,
     "color":""
 }
+
+
+
+//Output format
 
 {
     "id": 1741244930412,
