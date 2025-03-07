@@ -1,14 +1,32 @@
-const user=require('../models/user.model')
+const User = require("../models/user.model");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const userServices={
+const JWT_SECRET_KEY = process.env.JWT_SECRET;
+const SALT = parseInt(process.env.SALT, 10);
 
-    INSERT:async()=>{},
-    LOGIN:async()=>{},
-    VIEW_ALL:async()=>{},
-    VIEW_SINGLE:async()=>{},
-    UPDATE:async()=>{},
-    DELETE:async()=>{},
-    CHANGE_PASSWORD:async()=>{},
-}
+const userServices = {
+  INSERT: async (userPayload) => {
+    const { email } = userPayload;
+    // Check if user already exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) throw new Error("User already exists");
+    return await User.create(userPayload);
+  },
 
-module.exports=userServices;
+
+
+
+
+
+
+  
+  LOGIN: async () => {},
+  VIEW_ALL: async () => {},
+  VIEW_SINGLE: async () => {},
+  UPDATE: async () => {},
+  DELETE: async () => {},
+  CHANGE_PASSWORD: async () => {},
+};
+
+module.exports = userServices;
