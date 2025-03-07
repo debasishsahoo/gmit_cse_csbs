@@ -1,6 +1,8 @@
 const express = require("express");
 const connectDB = require("./configs/db.mongo.conn");
 require("dotenv").config();
+const userRouter=require("./routers/user.route")
+
 
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
@@ -68,6 +70,14 @@ server.delete("/api/items/delete/:id", (req, res) => {
     res.status(404).json({ error: "Item not found" });
   }
 });
+
+
+
+
+server.use('/api/user',userRouter)
+//server.use('/api/product',productRouter)
+
+
 
 connectDB();
 server.listen(PORT, () => {
