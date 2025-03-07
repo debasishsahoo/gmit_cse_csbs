@@ -6,6 +6,8 @@
 127.0.0.1:5000/api/items/update/:id
 127.0.0.1:5000/api/items/delete/:id
 
+127.0.0.1:5000/api/user/insert
+
 
 //Input format
 {
@@ -24,3 +26,10 @@
     "price": 120,
     "color": "Black"
 }
+
+id
+name
+email
+password
+phone
+
