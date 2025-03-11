@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/NavBar";
+import ProtectedRoute from './routes/ProtectedRoute'
 import "./App.css";
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
 
 
        {/* Protected Route */}
-       <Route element={< Login/>}>
+       <Route element={< ProtectedRoute/>}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
