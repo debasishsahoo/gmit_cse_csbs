@@ -13,20 +13,61 @@ const userServices = {
     if (existingUser) throw new Error("User already exists");
     return await User.create(userPayload);
   },
+  LOGIN: async (email, password) => {
+    const user = await User.findOne({ email }).select("+password");
+    if (!user) throw new Error("Invalid email or password");
 
+    // Compare password using model method
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) throw new Error("Invalid email or password");
 
+    // Generate JWT token
+    return jwt.sign({ id: user._id, email: user.email }, SECRET_KEY, {
+      expiresIn: "1h",
+    });
+  },
+  VIEW_ALL: async () => {
+    return await User.find().select("-password");
+  },
+  VIEW_SINGLE: async (id) => {
+    const user = await User.findById(id).select("-password");
+    if (!user) throw new Error("User not found");
+    return user;
+  },
+  CHANGE_PASSWORD: async (userId, oldPassword, newPassword) => {
+    const user = await User.findById(userId).select("+password");
+    if (!user) throw new Error("User not found");
 
+    const isMatch = await user.comparePassword(oldPassword);
+    if (!isMatch) throw new Error("Incorrect old password");
 
+    user.password = newPassword;
+    await user.save();
+  },
+  DELETE: async (id) => {
+    const user = await User.findByIdAndDelete(id);
+        if (!user) throw new Error("User not found");
+        return user;
+  },
+  SIGNOUT: async () => {
+    return { message: "Logout successful" };
+  },
+  UPDATE: async (id, updatePayload) => {
+    const user = await User.findById(id);
+    if (!user) throw new Error("User not found");
 
+    if (updatePayload.email && updatePayload.email !== user.email) {
+      const emailExists = await User.findOne({
+        email: updatePayload.email,
+      });
+      if (emailExists) throw new Error("Email is already in use");
+    }
 
+    Object.assign(user, updatePayload);
+    await user.save();
 
-  
-  LOGIN: async () => {},
-  VIEW_ALL: async () => {},
-  VIEW_SINGLE: async () => {},
-  UPDATE: async () => {},
-  DELETE: async () => {},
-  CHANGE_PASSWORD: async () => {},
+    return user.toJSON();
+  },
 };
 
 module.exports = userServices;
