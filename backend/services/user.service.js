@@ -15,11 +15,11 @@ const userServices = {
   },
   LOGIN: async (email, password) => {
     const user = await User.findOne({ email }).select("+password");
-    if (!user) throw new Error("Invalid email or password");
+    if (!user) throw new Error("Invalid Email..");
 
     // Compare password using model method
     const isMatch = await user.comparePassword(password);
-    if (!isMatch) throw new Error("Invalid email or password");
+    if (!isMatch) throw new Error("Invalid Password...");
 
     // Generate JWT token
     return jwt.sign({ id: user._id, email: user.email }, SECRET_KEY, {
