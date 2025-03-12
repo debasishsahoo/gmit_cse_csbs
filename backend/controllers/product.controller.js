@@ -1,5 +1,5 @@
 // controllers/product.controller.js
-const productServices = require("../services/product.services");
+const productServices = require("../services/product.service");
 
 const productController = {
   createProduct: async (req, res) => {

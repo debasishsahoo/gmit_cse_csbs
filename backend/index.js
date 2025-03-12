@@ -6,7 +6,7 @@ const MongoStore = require("connect-mongo");
 const { logger } = require("./middlewares/auth.middleware");
 
 const userRouter=require("./routers/user.route")
-const productRouter = require("./routers/product.routes");
+const productRouter = require("./routers/product.route");
 require("dotenv").config();
 
 const PORT = process.env.PORT;
