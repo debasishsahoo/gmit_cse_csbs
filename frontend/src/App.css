@@ -1,187 +1,369 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  h1, h2 {
-    color: #333;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  input {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Home Page */
-  .home-container {
-    margin-top: 50px;
-  }
-  
-  /* Dashboard */
-  .dashboard-container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Product List */
-  .product-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .product-list li {
-    display: flex;
-    justify-content: space-between;
-    background: #fff;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-list button {
-    background-color: red;
-  }
-  
-  .product-list button:hover {
-    background-color: darkred;
-  }
-  
-  /* Center the form */
-  form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form Heading */
-  form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  /* Label Styling */
-  form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-align: left;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  /* Input Field Styling */
-  form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background: #f9f9f9;
-    outline: none;
-    transition: border 0.3s ease;
-  }
-  
-  /* Fix for required fields (remove browser default tooltip styling) */
-  form input:invalid {
-    box-shadow: none;
-  }
-  
-  /* Placeholder Styling */
-  form input::placeholder {
-    color: #999;
-    font-size: 14px;
-  }
-  
-  /* Button Styling */
-  form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  form button:hover {
-    background-color: #0056b3;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
-  /* Navbar Styles */
-.navbar {
-    background-color: #333;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-links li {
-    display: inline;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #007bff;
-  }
-  
+h1, h2 {
+  color: #333;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Home Page */
+.home-container {
+  margin-top: 50px;
+}
+
+/* Dashboard */
+.dashboard-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Product List */
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-list li {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-list button {
+  background-color: red;
+}
+
+.product-list button:hover {
+  background-color: darkred;
+}
+
+/* Center the form */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Heading */
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Label Styling */
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Input Field Styling */
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #f9f9f9;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+/* Fix for required fields (remove browser default tooltip styling) */
+form input:invalid {
+  box-shadow: none;
+}
+
+/* Placeholder Styling */
+form input::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Button Styling */
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.product-form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background: blue;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button.cancel-btn {
+  background: gray;
+}
+
+/* Product List Container */
+.product-list-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.product-list-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Product List */
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Product Item */
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  color: #444;
+}
+
+/* Buttons Container */
+.product-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Edit Button - Green */
+.edit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+/* Delete Button - Red */
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Product List Container */
+.product-list-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Product List */
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Product Item */
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  color: #444;
+}
+
+/* Buttons */
+.product-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Edit Button - Green */
+.edit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+/* Delete Button - Red */
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Signout Button - Blue */
+.signout-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.signout-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* Signout Button */
+.signout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.signout-btn:hover {
+  background-color: #cc0000;
+}
