@@ -1,9 +1,12 @@
 const express = require("express");
-const cors = require("cors"); // Import CORS
+const cors = require("cors"); 
 const connectDB = require("./configs/db.mongo.conn");
-require("dotenv").config();
-const userRouter=require("./routers/user.route")
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const { logger } = require("./middlewares/auth.middleware");
 
+const userRouter=require("./routers/user.route")
+require("dotenv").config();
 
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
@@ -11,6 +14,7 @@ const HOST = process.env.HOST;
 const server = express();
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+server.use(logger);
 // ✅ Enable CORS
 server.use(
   cors({
@@ -21,6 +25,28 @@ server.use(
   })
 );
 
+// Configure session middleware
+server.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/usersDB",
+      collectionName: "sessions",
+    }),
+    cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 }, // 1 hour
+  })
+);
+
+
+
+
+
+
+
+
+
 server.use("/api/health", (req, res) => {
   res.status(200).json({
     msg: "Api is Running....",
@@ -29,65 +55,9 @@ server.use("/api/health", (req, res) => {
   });
 });
 
-let items = []; //In-Memory Database
-
-//INSERT data in to database(CREATE)
-//API endpoint=http://127.0.0.1:5000/api/items/insert
-               //ROUTER URL     //API METHODS
-server.post("/api/items/insert", (req, res) => {
-  const body={...req.body};
-  const item = { id: Date.now(), ...body};
-  items.push(item);
-  res.status(201).json(item);
-});
-
-//VIEW ALL DATA FROM DATABASE(READ)
-//API endpoint=http://127.0.0.1:5000/api/items/view
-server.get("/api/items/view", (req, res) => {
-  res.status(200).json(items);
-});
-
-//READ (single item by ID)
-//VIEW SINGLE DATA FROM DATABASE(READ)
-//API endpoint=http://127.0.0.1:5000/api/items/view/:id
-server.get("/api/items/view/:id", (req, res) => {
-  const item = items.find((i) => i.id === parseInt(req.params.id));
-  item ? res.status(200).json(item) : res.status(404).json({ error: "Item not found" });
-});
-
-//UPDATE (single item by ID)
-//UPDATE SINGLE DATA FROM DATABASE(UPDATE)
-//API endpoint=http://127.0.0.1:5000/api/items/update/:id
-server.put("/api/items/update/:id", (req, res) => {
-  const index = items.findIndex((i) => i.id === parseInt(req.params.id));
-  if (index !== -1) {
-    items[index] = { ...items[index], ...req.body };
-    res.status(200).json(items[index]);
-  } else {
-    res.status(404).json({ error: "Item not found" });
-  }
-});
-
-//DELETE (single item by ID)
-//DELETE SINGLE DATA FROM DATABASE(UPDATE)
-//API endpoint=http://127.0.0.1:5000/api/items/delete/:id
-server.delete("/api/items/delete/:id", (req, res) => {
-  const index = items.findIndex((i) => i.id === parseInt(req.params.id));
-  if (index !== -1) {
-    const deletedItem = items.splice(index, 1);
-    res.status(200).json(deletedItem);
-  } else {
-    res.status(404).json({ error: "Item not found" });
-  }
-});
-
-
-
 
 server.use('/api/user',userRouter)
 //server.use('/api/product',productRouter)
-
-
 
 connectDB();
 server.listen(PORT, () => {
