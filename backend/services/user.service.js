@@ -22,7 +22,7 @@ const userServices = {
     if (!isMatch) throw new Error("Invalid Password...");
 
     // Generate JWT token
-    return jwt.sign({ id: user._id, email: user.email }, SECRET_KEY, {
+    return jwt.sign({ id: user._id, email: user.email }, JWT_SECRET_KEY, {
       expiresIn: "1h",
     });
   },
