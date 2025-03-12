@@ -6,6 +6,7 @@ const MongoStore = require("connect-mongo");
 const { logger } = require("./middlewares/auth.middleware");
 
 const userRouter=require("./routers/user.route")
+const productRouter = require("./routers/product.routes");
 require("dotenv").config();
 
 const PORT = process.env.PORT;
@@ -57,7 +58,7 @@ server.use("/api/health", (req, res) => {
 
 
 server.use('/api/user',userRouter)
-//server.use('/api/product',productRouter)
+server.use('/api/product',productRouter)
 
 connectDB();
 server.listen(PORT, () => {
